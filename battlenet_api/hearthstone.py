@@ -22,7 +22,7 @@ def get_all_cards(token: str, locale: str = 'ko_KR'):
     return response.json()
 
 
-def get_all_cards_by_game_mode(token: str, game_mode: enums.GameMode = enums.GameMode.CONSTRUCTED, locale: str = 'ko_KR'):
+def get_all_cards_by_game_mode(token: str, game_mode: enums.GameMode = enums.GameMode.CONSTRUCTED, locale: str = 'ko_KR', page: int = 1):
     card_request_url = base_url + 'cards'
-    response = requests.get(f'{card_request_url}?gameMode={game_mode.value}&access_token={token}&locale={locale}')
+    response = requests.get(f'{card_request_url}?gameMode={game_mode.value}&access_token={token}&locale={locale}&page={page}')
     return response.json()
